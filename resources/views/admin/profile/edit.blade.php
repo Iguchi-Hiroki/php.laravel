@@ -8,6 +8,6 @@
         <title>EditProfile</title>
     </head>
     <body>
-        <h1>エディットプロフィール</h1>
+        <h1>Editプロフィール</h1>
     </body>
 </html>
