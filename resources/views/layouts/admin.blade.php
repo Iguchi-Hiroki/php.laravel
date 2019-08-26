@@ -30,7 +30,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         
-                        <ul class="navbar-nav mr-auto">
+                        <ul class="navbar-nav ml-auto">
                         @guest
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                         {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
@@ -55,7 +55,7 @@
                             @endguest
                         </ul>
                         
-                        <ul classs="navbar-nav ml-auto">
+                        <ul classs="navbar-nav mr-auto">
                         </ul>
                     </div>
                 </div>
