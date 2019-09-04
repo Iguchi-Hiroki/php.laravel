@@ -12,4 +12,11 @@ class News extends Model
         'title' => 'required',
         'body' => 'required',
     );
+    
+    
 }
+    //News::create([
+                //'name' =>"森本",
+               // 'email' =>"morimoto@tech.com",
+                //'password' => Hash::make("pass"),
+               // ]);
