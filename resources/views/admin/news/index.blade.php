@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', '登録済みのニュースの一覧')
+@section('title', '登録済みニュースの一覧')
 
 @section('content')
     <div class="container">
@@ -8,14 +8,14 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <a href="{{ action('Admin\NewsController@add') }}" role="buttton" class="btn btn-primary">新規作成</a>
+                <a href="{{ action('Admin\NewsController@add') }}" role="button" class="btn btn-primary">新規作成</a>
             </div>
             <div class="col-md-8">
-                <form action="{{ action('Admin\NewsController@index')}}" method="get">
+                <form action="{{ action('Admin\NewsController@index') }}" method="get">
                     <div class="form-group row">
                         <label class="col-md-2">タイトル</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
+                            <input type="text" class="form-control" name="cond_title" value={{ $cond_title }}>
                         </div>
                         <div class="col-md-2">
                             {{ csrf_field() }}
@@ -25,8 +25,8 @@
                 </form>
             </div>
         </div>
-        <div class=""row>
-            <div class="list-news col-md-12 mx-auto">
+        <div class="row">
+            <div class="admin-news col-md-12 mx-auto">
                 <div class="row">
                     <table class="table table-dark">
                         <thead>
@@ -34,6 +34,7 @@
                                 <th width="10%">ID</th>
                                 <th width="20%">タイトル</th>
                                 <th width="50%">本文</th>
+                                <th width="10%">操作</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,6 +43,11 @@
                                     <th>{{ $news->id }}</th>
                                     <td>{{ str_limit($news->title, 100) }}</td>
                                     <td>{{ str_limit($news->body, 250) }}</td>
+                                    <td>
+                                        <div>
+                                            <a href="{{ action('Admin\NewsController@edit', ['id' => $news->id]) }}">編集</a>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -50,3 +56,4 @@
             </div>
         </div>
     </div>
+@endsection
