@@ -1,6 +1,5 @@
 @extends('layouts.profile')
-                    
-@section('title', 'MY プロフィール')
+@section('title', 'MYプロフィール')
                     
 @section('content')
     <div class="container">
@@ -45,6 +44,6 @@
                 </form>
             </div>
         </div>
-        </div>
+    </div>
 @endsection
     

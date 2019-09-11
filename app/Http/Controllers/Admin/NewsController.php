@@ -20,7 +20,7 @@ class NewsController extends Controller
     $form = $request->all();
      
     // formに画像があれば、保存する
-    if ($form['image']) {
+    if (isset($form['image'])) {
         $path = $request->file('image')->store('public/image');
         $news->image_path = basename($path);
     } else {
@@ -32,7 +32,7 @@ class NewsController extends Controller
      
     // データベースに保存する
     $news->fill($form);
-    #news->save();
+    $news->save();
      
     return redirect('admin/news/create');
  }
@@ -80,5 +80,14 @@ public function edit(Request $request)
     $news->fill($news_form)->save();
 
     return redirect('admin/news');
+  }
+  
+  public function delete(Request $request)
+  {
+      //該当するNews Modelを取得
+      $news = News::find($request->id);
+      //削除する
+      $news->delete();
+      return redirect('admin/news/');
   }
 }
