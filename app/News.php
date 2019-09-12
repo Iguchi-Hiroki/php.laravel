@@ -12,11 +12,11 @@ class News extends Model
         'title' => 'required',
         'body' => 'required',
     );
-    
+    //Newsモデルに関連付けを行う
+    public function histories()
+    {
+        return $this->hasMany('App\History');
+    }
     
 }
-    //News::create([
-                //'name' =>"森本",
-               // 'email' =>"morimoto@tech.com",
-                //'password' => Hash::make("pass"),
-               // ]);
+   
