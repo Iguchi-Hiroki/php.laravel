@@ -23,6 +23,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('news/delete', 'Admin\NewsController@delete')->middleware('auth'); 
     
     
+    
 // 課題4.以下を追記    
     Route::get('profile/create', 'Admin\ProfileController@add')->middleware('auth');
     Route::post('profile/create', 'Admin\ProfileController@create')->middleware('auth');
@@ -32,6 +33,12 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('profile/edit', 'Admin\ProfileController@update')->middleware('auth');
     Route::get('profile/delete', 'Admin\ProfileController@delete')->middleware('auth');
 });
+    Route::get('/', 'NewsController@index');
+    Route::get('/profile', 'ProfileController@index');
+
+
+
+
 
 // 課題3.「http://XXXXXX.jp/XXX というアクセスが来たときに、 AAAControllerのbbbというAction に渡すRoutingの設定」を書いてみてください。
 Route::get('XXX/aaa/bbb', 'XXX\AAAController@bbb');
